@@ -4,6 +4,8 @@ var config = require('./config/config.js');
 var PORT = config.PORT;
 var IP = config.IP;
 var fs = require('fs');
+var mime = require('mime');
+var path = require('path');
 
 //Para importar los colores
 //Tema de colors....
@@ -14,41 +16,27 @@ var colors = require('colors');
 colors.setTheme({
     "info":"rainbow",
     "data":"green",
-    "error":"red"
+    "error":"red",
+    "Ame":"america"
 });
 //req       peticion
 //res       respuesta
 var server = http.createServer(function(req, res){
-    var path = req.url;
-    if(path == '/'){
-        path = './static/index.html';
+    var urlPath = req.url;
+    if(urlPath == '/'){
+        urlPath = path.resolve('./static/index.html');
     }else{
-        path = './static'+ path;
+        urlPath = path.resolve('./static'+ urlPath);
     }
-    console.log(`Recurso solicitado: ${path}`.data);
+    console.log(`Recurso solicitado: ${urlPath}`.data);
     //Codigo que ejecuta nuestro server cada que se le ingresa una peticion
     // res.writeHead(200,{
     //     'Content-Type':'text/html'  
     // });
-    var extension = path.split(".")[2];      
-            switch(extension){
-                case 'html':
-                    res.writeHead(200,{
-                        "Contenr-Type":"text/html"
-                    });
-                break;
-                case 'js':
-                    res.writeHead(200,{
-                        "Contenr-Type":"text/javascript"
-                    });
-                break;
-                case 'css':
-                    res.writeHead(200,{
-                        "Contenr-Type":"text/css"
-                    });
-                break;
-            }
-    fs.readFile(path,function(err, content){
+    //Declarar mime en una variable
+    var mimeType = mime.lookup(urlPath);
+
+    fs.readFile(urlPath, function(err, content){
         if(err){
             console.log(`Error al leer archivo ${err}`);
             //decidiendo el content type de la extension del archivo solicitado
@@ -58,7 +46,10 @@ var server = http.createServer(function(req, res){
             res.end('Error 500: Internal Error...'.error);
         }else{
             //Sirve el archivo
-            console.log(">Se sirve el archivo: ./static/index.html".info);
+            res.writeHead(200,{
+                "Content-Type": mimeType
+            });
+            console.log(`>Se sirve el archivo: ${urlPath}`.Ame);
             res.end(content);
         }
     });
