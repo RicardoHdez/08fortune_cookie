@@ -25,10 +25,6 @@ var server = http.createServer(function(req, res){
     if(typeof(handlers[urlPath]) === 'function'){
         handlers[urlPath](req, res);
         console.log(`Handler detectado  ${handlers}`.info)
-    }//AQUI NOS QUEDAMOS
-    if(typeof(fortune[urlPath]) === 'function'){
-        fortune[urlPath](req, res);
-        console.log(`Fortune detectado  ${fortune}`.info)
     }else{
         //Se llama al servidor static
         staticServer.serve(urlPath, res);    

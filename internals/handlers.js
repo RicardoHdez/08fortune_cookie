@@ -1,18 +1,28 @@
 var path = require('path'), 
-    fs = require('fs');
+    fs = require('fs'),
+    fortune = require('./fortune.js');
 //Creando manejadores
 var _getAuthor = function(req, res){
     res.end(`Autor: Ricardo Hdez`);
 };
-// var _getFortune = function(req, res){
-//     res.end(`La suerte no existe, se fabrica ;)`);
-// };
+var _getFortune = function(req, res){
+    console.log(`Se solicita fortuna....`);
+    //Forma no bloqueante
+    fortune.getFortune(function(fortunePaperObj){
+        //Configurar el encabezado
+        res.writeHead(200, {
+            "Content-Type":"application/json"
+        });
+        console.log(`Contestando:  ${fortunePaperObj}`);
+        res.end(fortunePaperObj);
+    });
+};
 //------>Objeto manejador
 var handler = {};
 
 //Registro de manejadores en el objeto manejador
 handler["/getauthor"] = _getAuthor;
-// handler["/getfortune"] = _getFortune;
+handler["/getfortune"] = _getFortune;
 
 //Necesario exportar el objeto, para que el server lo lea
 module.exports = handler;
