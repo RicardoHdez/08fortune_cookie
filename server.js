@@ -8,6 +8,7 @@ var mime = require('mime');
 var path = require('path');
 var staticServer = require('./internals/static-server.js');
 var handlers = require('./internals/handlers.js');
+var fortune = require('./internals/fortune.js');
 
 //Para importar los colores
 //Tema de colors....
@@ -23,7 +24,11 @@ var server = http.createServer(function(req, res){
     }
     if(typeof(handlers[urlPath]) === 'function'){
         handlers[urlPath](req, res);
-        console.log(`Handler detectado  ${handlers}`)
+        console.log(`Handler detectado  ${handlers}`.info)
+    }//AQUI NOS QUEDAMOS
+    if(typeof(fortune[urlPath]) === 'function'){
+        fortune[urlPath](req, res);
+        console.log(`Fortune detectado  ${fortune}`.info)
     }else{
         //Se llama al servidor static
         staticServer.serve(urlPath, res);    

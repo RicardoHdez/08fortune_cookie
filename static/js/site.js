@@ -4,7 +4,7 @@
 var fortuna = function(){
     swal({
     title: "OYE!...",
-    text: "Si tu felicidad quieres encontrar a tu admirador debes amar",
-    imageUrl: "../vendor/sweetalert/example/images/pikachu.png"
+    imageUrl: "../vendor/sweetalert/example/images/pikachu.png",
+    text: "Si tu felicidad quieres encontrar a tu admirador debes amar"    
     });
 };
