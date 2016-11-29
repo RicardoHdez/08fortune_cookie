@@ -1,6 +1,8 @@
 var path = require('path'), 
     fs = require('fs'),
     fortune = require('./fortune.js');
+var mongoose = require('mongoose');
+
 //Creando manejadores
 var _getAuthor = function(req, res){
     res.end(`Autor: Ricardo Hdez`);

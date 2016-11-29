@@ -9,6 +9,7 @@ var path = require('path');
 var staticServer = require('./internals/static-server.js');
 var handlers = require('./internals/handlers.js');
 var fortune = require('./internals/fortune.js');
+var mongoose = require('mongoose');
 
 //Para importar los colores
 //Tema de colors....
