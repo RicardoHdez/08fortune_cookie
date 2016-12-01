@@ -1,7 +1,6 @@
 var path = require('path'), 
     fs = require('fs'),
     fortune = require('./fortune.js');
-var mongoose = require('mongoose');
 
 //Creando manejadores
 var _getAuthor = function(req, res){
@@ -19,6 +18,7 @@ var _getFortune = function(req, res){
         res.end(fortunePaperObj);
     });
 };
+
 //------>Objeto manejador
 var handler = {};
 

@@ -1,24 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <meta charset="UTF-8">
     <title>Mi estilo asombroso</title>
     <link rel="stylesheet" href="./vendor/sweetalert/dist/sweetalert.css">
-
     <link rel="stylesheet" href="./css/site.css">
+    
     <link rel="icon" href="./img/icono.png" type="image/png">
-</head>
-<body>
-    <h1>Galleta de la fortuna</h1>
-    <p>
-        Saludos
-    </p>
-    <p>
-        <button onclick="fortuna()">
-            Romper Galleta</button>
-    </p>
+    <!--materialize-->
+    <script src="./vendor/materialize/js/carousel.js"></script>
+    <link rel="stylesheet" href="./vendor/materialize/dist/css/materialize.min.css">
+    <script src="./vendor/materialize/dist/js/materialize.min.js"></script>
+    <script src="./vendor/materialize/js/slider.js"></script>
+    <script src="./vendor/materialize/js/parallax.js"></script>
+    <!--Importando Jquery-->
+    <script src="./vendor/jquery/dist/jquery.min.js"></script>
     <!--importando alert-->
     <script src="./vendor/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./js/site.js"></script>
+
+</head>
+<body>
+    <nav class="blue-grey lighten-5" role="navigation" style="height:150px;">
+        <div class="nav-wrapper container">
+            <a id="logo-container" class="brand-logo"><img src="./img/tec.png"></a>
+        </div>
+    </nav>
+
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br><br>
+                <h1 class="header center teal-text text-lighten-2">Galleta de la fortuna</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light cyan-text">Presiona para conocer tu fortuna</h5>
+                </div>
+                <div class="row center col s12 m2">
+                    <button onclick="getFortuneFromServer()" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 z-depth-5">Romper Galleta</button>
+                </div>
+            <br><br>
+            </div>
+        </div>
+        <div class="parallax"><img src="./img/itgam.jpg" alt="Unsplashed img 1"></div>
+    </div>
+<!--Termina contenido Galleta de la fortuna -->
+<div class="divider"></div>
+<div>
+    <h5 class="center-align cyan-text">Herramientas de trabajo</h5>
+</div>
+  <!--Termina titulo de herramientas-->
+<div class="row">
+    <div class="col s12 m7">
+        <div class="card hoverable blue-grey lighten-2">
+            <div class="card-image">
+              <img src="./img/node.png" style="width:200px;">
+            </div>
+            <div class="card-content">
+                <p class="white-text">Node.js es un entorno de ejecución para JavaScript construido con el motor de JavaScript V8 de Chrome.</p>
+                <p class="white-text">Node.js usa un modelo de operaciones E/S sin bloqueo y orientado a eventos, que lo hace liviano y eficiente.</p>
+            </div>
+            <div class="card-action">
+              <a href="https://nodejs.org/es/" target="_blank">Node.js</a>
+            </div>
+        </div>
+    </div>
+</div>
+      <!--Termina Card Node-->
+      <!--<div class="divider"></div>
+<div>
+    <h5 class="center-align cyan-text">Algunas dependencias</h5>
+</div>-->
+<!--Carrusel de imagenes-->
+    <!--<div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="./img/bower.png">
+        <div class="caption center-align">
+          <h3>Bower</h3>
+          <h5 class="light grey-text text-lighten-3">Bower</h5>
+        </div>
+      </li>
+      <li>
+        <img src="./img/materialize.png">
+        <div class="caption left-align">
+          <h3>Materialize</h3>
+          <h5 class="light grey-text text-lighten-3">Materialize</h5>
+        </div>
+      </li>
+      <li>
+        <img src="./img/sweetalert.jpg">
+        <div class="caption right-align">
+          <h3>Sweetalert</h3>
+          <h5 class="light grey-text text-lighten-3">Sweetalert</h5>
+        </div>
+      </li>
+    </ul>
+  </div>-->
+  <!--Card github-->
+  <div class="divider"></div>
+    <div class="row">
+        <div class="col s12 m7">
+          <div class="card hoverable blue-grey lighten-2">
+            <div class="card-image">
+              <img src="./img/github.png" style="width:200px;">
+            </div>
+            <div class="card-content">
+              <p class="white-text">GitHub es una plataforma para alojar proyectos utilizando el sistema de control de versiones Git</p>
+              <p class="white-text">Este es el alojamiento en el cual se trabajo nuestro proyecto</p>
+            </div>
+            <div class="card-action">
+              <a href="https://github.com/RicardoHdez" target="_blank">GitHub: RicardoHdez</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--Termina github      -->
+<!--Pie de pagina-->
+<footer class="page-footer teal  blue-grey darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l8 s8">
+          <h5 class="white-text">Programación de Aplicaciones Web</h5>
+          <p class="grey-text text-lighten-4">Una aplicación web se puede definir como una aplicación en la cual un usuario por medio de un navegador realiza peticiones a una aplicación remota accesible a través de Internet y que recibe una respuesta que se muestra en el propio navegador.</p>
+        </div>
+        <div class="col l4 s14">
+          <h5 class="white-text">Alumno</h5>
+          <ul>
+            <li><a class="white-text">Hernandez Teodoro Jose Ricardo</a></li>
+          </ul>
+        </div>
+        <div class="col l4 s10">
+          <h5 class="white-text">Contacto</h5>
+          <ul>
+            <a href="https://www.facebook.com/JRickyHdez" target="_blank"><img src="./img/facebook.png" style="width:50px;"></a>
+            <a href="https://twitter.com/richijoker?s=09" target="_blank"><img src="./img/twitter.png" style="width:50px;"></a>
+            <a href="https://www.instagram.com/ricky_hdez_jr/" target="_blank"><img src="./img/instagram.png" style="width:50px;"></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright blue-grey darken-3">
+      <div class="container">
+      Hecho por <a class="cyan-text text-white">José Ricardo Hernández Teodoro</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
