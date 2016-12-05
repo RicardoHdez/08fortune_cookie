@@ -41,11 +41,12 @@ module.exports = {
                 // Armando Objeto Respuesta
                 // Convertir en cadena escrita el Objeto Json
                 var fortunePaperObj = JSON.stringify(data[selector]);
+                console.log("Este es el String: " + fortunePaperObj);
                 // Cerrar mongo
                 db.close();
                 //Ejecutp el callback pasandole el parametro fortunePaper
                 cb(fortunePaperObj);
             });
         });
-    }
+    }//aqui se cierra getFortune function
 };

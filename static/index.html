@@ -51,15 +51,17 @@
     <!--<form class="col s12" action="#">-->
       <div class="row">
         <div class="input-field col s12">
-          <input id="text" type="text" class="validate">
+          <input id="frases" name="frases" type="text" class="validate">
           <label for="text" data-error="wrong" data-success="right">Colocala aqui</label>
         </div>
         <div class="row center col s12 m2">
-          <button onclick="fortuna()" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 z-depth-5">Guardar fortuna</button>
+          <!--<button onclick="metodo()" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 z-depth-5">Guardar fortuna</button>-->
+          <input type="button" id="guardar" name="guardar" class="btn-large waves-effect waves-light teal lighten-1 z-depth-5" value="Guardar fortuna" onclick="frases()">
         </div>
       </div>
     <!--</form>-->
   </div>
+  <script src="./js/capturar.js"></script>
 <!--Termina caja texto-->
 <div class="divider"></div>
 <div>
