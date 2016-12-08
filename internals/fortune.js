@@ -28,7 +28,7 @@ var mongoClient = mongo.MongoClient;
 module.exports = {
     "getFortune": function (cb) {
         //Logica que obtiene un mensaje aleatorio
-        mongoClient.connect("mongodb://127.0.0.1:27017/fortuneapp",
+        mongoClient.connect("mongodb://RicardoHdez:Ricky38476539@ds119578.mlab.com:19578/fortuneapps",
         function(err, db){
             var papers = db.collection("papers");
 

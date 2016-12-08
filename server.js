@@ -17,7 +17,6 @@ var app = express();
 app.use(bodyParser());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("static"));
-// app.set('view engine', 'html');
 //Mongo
 var mongodb = require('mongodb');
 var mongoClient = mongodb.MongoClient;
@@ -36,36 +35,9 @@ app.get('/getfortune', function(req, res){
     
 });
 
-app.post('/', function(req, res){
-
-    // Mongo
-    var fruta = req.body.fruta;
-    mongoClient.connect(connectionUrl, function (err, db){
-        //verificando que si conecto
-        if(err){
-            console.log(">no se conecto.....");
-            throw err;
-        }
-        //si llega aqui es que no hubo problema de conexion.
-        var papers = db.collection('papers');
-        //insertando algo a la collecion
-        papers.insert({
-            "message" : fruta
-        }, function (err, res){
-            if(err){
-                console.log(">no se pudo insertar.......");
-                db.close();
-                throw err;
-            }
-            //si se llega aqui si se pudo insertar.
-            console.log(`> Resultado de insertar: ${res}`);
-            db.close();
-        });
-    });
-    var html = 'Tu Fruta Favorita es: ' + fruta + '.<br>' +
-                '<a href="/">Probar de nuevo.</a>';
-    res.send(html);
-    // res.render('index');
+app.post('/getingresar', function(req, res){
+    var urlPath = req.url;
+    handlers[urlPath](req, res);
 });
 
 app.listen(app.get('port'), function(){
